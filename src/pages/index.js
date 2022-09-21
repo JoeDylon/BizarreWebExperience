@@ -30,6 +30,7 @@ const BlogIndex = ({ data, location }) => {
   // }
 
   function switchState() {
+    console.log('fire');
     setTitle(title != '小福泥' ? '小福泥' : '去世的小福泥')
     setDead(!dead)
   }
@@ -38,7 +39,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={title}>
       {!dead && <StaticImage className="bio-img" src="../images/1.jpg" />}
       {dead && <StaticImage className="bio-img gray" src="../images/2.jpg" />}
-      <div className="kiss" onClick={switchState} onTouchStart={switchState}>️😘</div>
+      <div className="kiss" onClick={switchState}>️😘</div>
       {/* <Emoji symbol={🕯️} /> */}
       {/* <Seo title="All posts" />
       <Bio />
