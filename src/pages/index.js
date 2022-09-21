@@ -30,6 +30,7 @@ const BlogIndex = ({ data, location }) => {
   // }
 
   function switchState() {
+    return
     console.log('fire');
     setTitle(title != '小福泥' ? '小福泥' : '去世的小福泥')
     setDead(!dead)
