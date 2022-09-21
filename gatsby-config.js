@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: ``,
+    title: `小福泥`,
     author: {
-      name: `fengyangzhou`,
+      name: `fyz`,
       summary: `working on web development...`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
