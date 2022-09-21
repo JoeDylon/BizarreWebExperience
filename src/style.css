@@ -304,8 +304,28 @@ a:focus {
 
 .bio-img {
   display: block;
-  margin: 5rem auto;
-  width: 60vw;
+  margin: 1rem auto 0.5rem;
+  min-width: 200px;
+  max-width: 500px;
+}
+
+.gray { 
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    
+    filter: grayscale(100%);
+	
+    filter: gray;
+}
+
+.kiss {
+  margin: 0 auto;
+  font-size: 5rem; 
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .blog-post header h1 {

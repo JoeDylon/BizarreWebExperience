@@ -6,30 +6,40 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { StaticImage } from "gatsby-plugin-image"
+import Emoji from "../components/emoji"
+import { useState } from "react"
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const [title, setTitle] = useState('小福泥')
+  const [dead, setDead] = useState(false)
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
+  // const posts = data.allMarkdownRemark.nodes
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
+  // if (posts.length === 0) {
+  //   return (
+  //     <Layout location={location} title={siteTitle}>
+  //       <Seo title="All posts" />
+  //       <Bio />
+  //       <p>
+  //         No blog posts found. Add markdown posts to "content/blog" (or the
+  //         directory you specified for the "gatsby-source-filesystem" plugin in
+  //         gatsby-config.js).
+  //       </p>
+  //     </Layout>
+  //   )
+  // }
+
+  function switchState() {
+    setTitle(title != '小福泥' ? '小福泥' : '去世的小福泥')
+    setDead(!dead)
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <StaticImage className="bio-img" src="../images/1.jpg" />
-      <StaticImage className="bio-img" src="../images/2.jpg" />
-      <StaticImage className="bio-img" src="../images/3.jpg" />
+    <Layout location={location} title={title}>
+      {!dead && <StaticImage className="bio-img" src="../images/1.jpg" />}
+      {dead && <StaticImage className="bio-img gray" src="../images/2.jpg" />}
+      <div className="kiss" onClick={switchState} onTouchStart={switchState}>️😘</div>
+      {/* <Emoji symbol={🕯️} /> */}
       {/* <Seo title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
